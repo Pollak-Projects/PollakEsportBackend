@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2024 at 04:54 PM
+-- Generation Time: Oct 23, 2024 at 07:48 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -197,30 +197,31 @@ CREATE TABLE `team` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `createdBy` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `team`
 --
 
-INSERT INTO `team` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
-(3, 'Kiralyok1', '2024-10-17 20:59:28', '2024-10-17 20:59:43'),
-(4, 'Kiralyok2', '2024-10-17 20:59:39', '2024-10-17 20:59:39'),
-(5, 'Kiralyok3', '2024-10-17 20:59:39', '2024-10-17 20:59:39'),
-(6, 'Kiralyok4', '2024-10-17 20:59:39', '2024-10-17 20:59:39'),
-(8, 'kiralyok5', '2024-10-23 14:46:33', '2024-10-23 14:46:44'),
-(9, 'kiralyok6', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
-(10, 'kiralyok7', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
-(11, 'kiralyok8', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
-(12, 'kiralyok9', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
-(13, 'kiralyok10', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
-(14, 'kiralyok11', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
-(15, 'kiralyok12', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
-(16, 'kiralyok13', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
-(17, 'kiralyok14', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
-(18, 'kiralyok15', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
-(19, 'kiralyok16', '2024-10-23 14:47:22', '2024-10-23 14:47:22');
+INSERT INTO `team` (`id`, `name`, `createdAt`, `updatedAt`, `createdBy`) VALUES
+(3, 'Kiralyok1', '2024-10-17 20:59:28', '2024-10-23 17:47:05', 1),
+(4, 'Kiralyok2', '2024-10-17 20:59:39', '2024-10-23 17:47:07', 1),
+(5, 'Kiralyok3', '2024-10-17 20:59:39', '2024-10-23 17:47:09', 1),
+(6, 'Kiralyok4', '2024-10-17 20:59:39', '2024-10-23 17:47:12', 1),
+(8, 'kiralyok5', '2024-10-23 14:46:33', '2024-10-23 17:47:14', 1),
+(9, 'kiralyok6', '2024-10-23 14:47:22', '2024-10-23 17:47:15', 1),
+(10, 'kiralyok7', '2024-10-23 14:47:22', '2024-10-23 17:47:17', 1),
+(11, 'kiralyok8', '2024-10-23 14:47:22', '2024-10-23 17:47:18', 1),
+(12, 'kiralyok9', '2024-10-23 14:47:22', '2024-10-23 17:47:20', 1),
+(13, 'kiralyok10', '2024-10-23 14:47:22', '2024-10-23 17:47:21', 1),
+(14, 'kiralyok11', '2024-10-23 14:47:22', '2024-10-23 17:47:22', 1),
+(15, 'kiralyok12', '2024-10-23 14:47:22', '2024-10-23 17:47:24', 1),
+(16, 'kiralyok13', '2024-10-23 14:47:22', '2024-10-23 17:47:25', 1),
+(17, 'kiralyok14', '2024-10-23 14:47:22', '2024-10-23 17:47:26', 1),
+(18, 'kiralyok15', '2024-10-23 14:47:22', '2024-10-23 17:47:28', 1),
+(19, 'kiralyok16', '2024-10-23 14:47:22', '2024-10-23 17:47:29', 1);
 
 -- --------------------------------------------------------
 
@@ -413,7 +414,8 @@ ALTER TABLE `seed`
 -- Indexes for table `team`
 --
 ALTER TABLE `team`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `createdBy` (`createdBy`);
 
 --
 -- Indexes for table `teamsonseed`
@@ -512,6 +514,12 @@ ALTER TABLE `roundsongame`
 --
 ALTER TABLE `seed`
   ADD CONSTRAINT `fk_seed_round` FOREIGN KEY (`roundId`) REFERENCES `round` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `team`
+--
+ALTER TABLE `team`
+  ADD CONSTRAINT `team_ibfk_1` FOREIGN KEY (`createdBy`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `teamsonseed`
