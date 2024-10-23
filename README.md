@@ -13,7 +13,8 @@ The backend of the Pollak E-Sports
 - TeamsOnSeed : CRD + getUsersByTeamId (Without update method, because its useless and we dont have a primary id. Just delete and recreate)
 - UsersOnTeam : CRD + getUsersByTeamId (Without update method, because its useless and we dont have a primary id. Just delete and recreate) 
 - RoundsOnGame : CRD + getRoundsByGameId (Without update method, because its useless and we dont have a primary id. Just delete and recreate) 
-- GameVariants : CRD + getGameVariantsByGameId (Without update method, because its useless and we dont have a primary id. Just delete and recreate)  
+- GameVariants : CRD + getGameVariantsByGameId (Without update method, because its useless and we dont have a primary id. Just delete and recreate)
+- MixedController : GetGamesForCards + GetDataForBracketsOnChosenGame
 - Sessions : TODO
 - Tokens : TODO
 - AuthController : TODO
