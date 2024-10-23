@@ -1,0 +1,243 @@
+Get all games for the dynamic cards: 
+[
+    {
+        "game_id": 1,
+        "game_name": "Valorant Game",
+        "playerCount": 20,
+        "playerPerTeam": 5,
+        "requiredForPrize": 50000,
+        "game_status": "In progress",
+        "variant_id": 1,
+        "variant_name": "Valorant",
+        "matchtype_id": 1,
+        "match_type": "1v1"
+    },
+    {
+        "game_id": 2,
+        "game_name": "R6 Game",
+        "playerCount": 20,
+        "playerPerTeam": 5,
+        "requiredForPrize": 50000,
+        "game_status": "Coming soon",
+        "variant_id": 2,
+        "variant_name": "R6",
+        "matchtype_id": 5,
+        "match_type": "5v5"
+    },
+    {
+        "game_id": 3,
+        "game_name": "LOL Game",
+        "playerCount": 20,
+        "playerPerTeam": 5,
+        "requiredForPrize": 50000,
+        "game_status": "Finished",
+        "variant_id": 3,
+        "variant_name": "LOL",
+        "matchtype_id": 3,
+        "match_type": "3v3"
+    }
+]
+
+Get data for the chosen game's round brackets:
+[
+    {
+        "title": "Round 1",
+        "seeds": [
+            {
+                "id": 1,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok1"
+                    },
+                    {
+                        "name": "Kiralyok2"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok3"
+                    },
+                    {
+                        "name": "Kiralyok4"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok5"
+                    },
+                    {
+                        "name": "Kiralyok6"
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok7"
+                    },
+                    {
+                        "name": "Kiralyok8"
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok9"
+                    },
+                    {
+                        "name": "Kiralyok10"
+                    }
+                ]
+            },
+            {
+                "id": 6,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok11"
+                    },
+                    {
+                        "name": "Kiralyok12"
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok13"
+                    },
+                    {
+                        "name": "Kiralyok14"
+                    }
+                ]
+            },
+            {
+                "id": 8,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok15"
+                    },
+                    {
+                        "name": "Kiralyok16"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Round 2",
+        "seeds": [
+            {
+                "id": 9,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok1"
+                    },
+                    {
+                        "name": "Kiralyok3"
+                    }
+                ]
+            },
+            {
+                "id": 10,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok5"
+                    },
+                    {
+                        "name": "Kiralyok7"
+                    }
+                ]
+            },
+            {
+                "id": 11,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok9"
+                    },
+                    {
+                        "name": "Kiralyok11"
+                    }
+                ]
+            },
+            {
+                "id": 12,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok13"
+                    },
+                    {
+                        "name": "Kiralyok15"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Round 3",
+        "seeds": [
+            {
+                "id": 13,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok1"
+                    },
+                    {
+                        "name": "Kiralyok5"
+                    }
+                ]
+            },
+            {
+                "id": 14,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok9"
+                    },
+                    {
+                        "name": "Kiralyok13"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Round 4",
+        "seeds": [
+            {
+                "id": 15,
+                "date": "Wed Oct 23 2024",
+                "teams": [
+                    {
+                        "name": "Kiralyok1"
+                    },
+                    {
+                        "name": "Kiralyok13"
+                    }
+                ]
+            }
+        ]
+    }
+]
