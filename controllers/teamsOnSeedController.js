@@ -34,10 +34,12 @@ const createTeamsOnSeed = async (req, res) => {
     const teamOneId = req.body.teamOneId;
     const teamTwoId = req.body.teamTwoId; 
     const seedId = req.body.seedId; 
+    const teamOneScore = req.body.teamOneScore;
+    const teamTwoScore = req.body.teamTwoScore;
     
     try{
         const response = await new Promise((resolve, reject) => {
-            connect.query("INSERT INTO `teamsonseed` (`teamOneId`, `teamTwoId`, `seedId`) VALUES (?, ?, ?);", [teamOneId, teamTwoId, seedId],(err, result) => {
+            connect.query("INSERT INTO `teamsonseed` (`teamOneId`, `teamTwoId`, `seedId`, `teamOneScore`, `teamTwoScore`) VALUES (?, ?, ?, ?, ?);", [teamOneId, teamTwoId, seedId, teamOneScore, teamTwoScore],(err, result) => {
                 if (err) reject(err); 
                 else resolve(result);
             });

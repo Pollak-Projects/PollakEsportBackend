@@ -35,6 +35,7 @@ app.use('/seed', seedRoutes);
 app.use('/usersonteam', usersOnTeamRoutes);
 app.use('/roundsongame', roundsOnGameRoutes);
 app.use('/gamevariants', gameVariantsRoutes);
+app.use('/teamsonseed', teamsOnSeedRoutes)
 app.use('/mixed', mixedRoutes)
 
 //session

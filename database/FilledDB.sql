@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2024 at 12:21 PM
+-- Generation Time: Oct 23, 2024 at 04:54 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -208,7 +208,19 @@ INSERT INTO `team` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
 (3, 'Kiralyok1', '2024-10-17 20:59:28', '2024-10-17 20:59:43'),
 (4, 'Kiralyok2', '2024-10-17 20:59:39', '2024-10-17 20:59:39'),
 (5, 'Kiralyok3', '2024-10-17 20:59:39', '2024-10-17 20:59:39'),
-(6, 'Kiralyok4', '2024-10-17 20:59:39', '2024-10-17 20:59:39');
+(6, 'Kiralyok4', '2024-10-17 20:59:39', '2024-10-17 20:59:39'),
+(8, 'kiralyok5', '2024-10-23 14:46:33', '2024-10-23 14:46:44'),
+(9, 'kiralyok6', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
+(10, 'kiralyok7', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
+(11, 'kiralyok8', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
+(12, 'kiralyok9', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
+(13, 'kiralyok10', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
+(14, 'kiralyok11', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
+(15, 'kiralyok12', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
+(16, 'kiralyok13', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
+(17, 'kiralyok14', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
+(18, 'kiralyok15', '2024-10-23 14:47:22', '2024-10-23 14:47:22'),
+(19, 'kiralyok16', '2024-10-23 14:47:22', '2024-10-23 14:47:22');
 
 -- --------------------------------------------------------
 
@@ -219,6 +231,8 @@ INSERT INTO `team` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
 CREATE TABLE `teamsonseed` (
   `teamOneId` int(11) NOT NULL,
   `teamTwoId` int(11) NOT NULL,
+  `teamOneScore` int(11) NOT NULL DEFAULT 0,
+  `teamTwoScore` int(11) NOT NULL DEFAULT 0,
   `seedId` int(11) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -228,10 +242,22 @@ CREATE TABLE `teamsonseed` (
 -- Dumping data for table `teamsonseed`
 --
 
-INSERT INTO `teamsonseed` (`teamOneId`, `teamTwoId`, `seedId`, `createdAt`, `updatedAt`) VALUES
-(3, 4, 1, '2024-10-17 21:25:34', '2024-10-17 21:25:34'),
-(3, 5, 2, '2024-10-17 21:26:35', '2024-10-17 21:26:35'),
-(5, 6, 1, '2024-10-17 21:26:21', '2024-10-17 21:26:21');
+INSERT INTO `teamsonseed` (`teamOneId`, `teamTwoId`, `teamOneScore`, `teamTwoScore`, `seedId`, `createdAt`, `updatedAt`) VALUES
+(3, 4, 0, 0, 1, '2024-10-23 14:47:42', '2024-10-23 14:47:42'),
+(5, 6, 0, 0, 1, '2024-10-23 14:47:49', '2024-10-23 14:47:49'),
+(8, 9, 0, 0, 1, '2024-10-23 14:47:56', '2024-10-23 14:47:56'),
+(10, 11, 0, 0, 1, '2024-10-23 14:48:02', '2024-10-23 14:48:02'),
+(12, 13, 0, 0, 1, '2024-10-23 14:48:08', '2024-10-23 14:48:08'),
+(14, 15, 0, 0, 1, '2024-10-23 14:48:14', '2024-10-23 14:48:14'),
+(16, 17, 0, 0, 1, '2024-10-23 14:48:20', '2024-10-23 14:48:20'),
+(18, 19, 0, 0, 1, '2024-10-23 14:48:29', '2024-10-23 14:48:29'),
+(3, 5, 0, 0, 2, '2024-10-23 14:48:39', '2024-10-23 14:48:39'),
+(8, 10, 0, 0, 2, '2024-10-23 14:48:47', '2024-10-23 14:48:47'),
+(12, 14, 0, 0, 2, '2024-10-23 14:48:54', '2024-10-23 14:48:54'),
+(16, 18, 0, 0, 2, '2024-10-23 14:49:01', '2024-10-23 14:49:01'),
+(3, 8, 0, 0, 13, '2024-10-23 14:50:31', '2024-10-23 14:50:31'),
+(12, 16, 0, 0, 13, '2024-10-23 14:50:46', '2024-10-23 14:50:46'),
+(3, 16, 0, 0, 4, '2024-10-23 14:53:11', '2024-10-23 14:53:11');
 
 -- --------------------------------------------------------
 
@@ -424,7 +450,7 @@ ALTER TABLE `variant`
 -- AUTO_INCREMENT for table `game`
 --
 ALTER TABLE `game`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `matchtype`
@@ -448,7 +474,7 @@ ALTER TABLE `seed`
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `users`

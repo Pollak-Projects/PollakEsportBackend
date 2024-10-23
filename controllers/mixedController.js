@@ -41,6 +41,10 @@ const getDataForBrackets = async (req, res) => {
         const data = await new Promise(async (resolve, reject) => {
             connect.query(`
                     SELECT 
+                        ts.teamOneScore as teamA_score,
+                        ts.teamTwoScore as teamB_score,
+                        t1.id as teamA_id,
+                        t2.id as teamB_id,
                         t1.name as teamA_name,
                         t2.name as teamB_name,
                         r.number as round_number
@@ -64,9 +68,9 @@ const getDataForBrackets = async (req, res) => {
             });
         });
 
-        const formattedData = formatRounds(data)
+        const resp = formatRoundsWithScores(data)
 
-        return res.json(formattedData);
+        return res.json(resp);
     } catch (error){ res.status(500).json(error); }
 };
 
@@ -75,9 +79,8 @@ module.exports = {
     getDataForBrackets
 }
 
-const formatRounds = (results) => {
-
-    let seedCounter = 1;
+const formatRoundsWithScores = (results) => {
+    let seedCounter = 1; 
   
     const roundsMap = results.reduce((acc, row) => {
       const roundTitle = `Round ${row.round_number}`;
@@ -89,11 +92,19 @@ const formatRounds = (results) => {
       }
       
       acc[roundTitle].seeds.push({
-        id: seedCounter++,
+        id: seedCounter++, 
         date: new Date().toDateString(), 
         teams: [
-          { name: row.teamA_name }, 
-          { name: row.teamB_name }
+          {
+            name: row.teamA_name,
+            teamAid: row.teamA_id, 
+            teamAscore: row.teamA_score 
+          },
+          {
+            name: row.teamB_name,
+            teamAid: row.teamB_id,
+            teamAscore: row.teamB_score 
+          }
         ]
       });
       
@@ -101,4 +112,6 @@ const formatRounds = (results) => {
     }, {});
   
     return Object.values(roundsMap);
-  };
+};
+  
+  

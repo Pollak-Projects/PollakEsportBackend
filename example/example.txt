@@ -48,10 +48,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok1"
+                        "name": "Kiralyok1",
+                        "teamAid": 3,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok2"
+                        "name": "Kiralyok2",
+                        "teamAid": 4,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -60,10 +64,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok3"
+                        "name": "Kiralyok3",
+                        "teamAid": 5,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok4"
+                        "name": "Kiralyok4",
+                        "teamAid": 6,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -72,10 +80,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok5"
+                        "name": "kiralyok5",
+                        "teamAid": 8,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok6"
+                        "name": "kiralyok6",
+                        "teamAid": 9,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -84,10 +96,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok7"
+                        "name": "kiralyok7",
+                        "teamAid": 10,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok8"
+                        "name": "kiralyok8",
+                        "teamAid": 11,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -96,10 +112,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok9"
+                        "name": "kiralyok9",
+                        "teamAid": 12,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok10"
+                        "name": "kiralyok10",
+                        "teamAid": 13,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -108,10 +128,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok11"
+                        "name": "kiralyok11",
+                        "teamAid": 14,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok12"
+                        "name": "kiralyok12",
+                        "teamAid": 15,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -120,10 +144,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok13"
+                        "name": "kiralyok13",
+                        "teamAid": 16,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok14"
+                        "name": "kiralyok14",
+                        "teamAid": 17,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -132,10 +160,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok15"
+                        "name": "kiralyok15",
+                        "teamAid": 18,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok16"
+                        "name": "kiralyok16",
+                        "teamAid": 19,
+                        "teamAscore": 0
                     }
                 ]
             }
@@ -149,10 +181,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok1"
+                        "name": "Kiralyok1",
+                        "teamAid": 3,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok3"
+                        "name": "Kiralyok3",
+                        "teamAid": 5,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -161,10 +197,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok5"
+                        "name": "kiralyok5",
+                        "teamAid": 8,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok7"
+                        "name": "kiralyok7",
+                        "teamAid": 10,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -173,10 +213,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok9"
+                        "name": "kiralyok9",
+                        "teamAid": 12,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok11"
+                        "name": "kiralyok11",
+                        "teamAid": 14,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -185,10 +229,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok13"
+                        "name": "kiralyok13",
+                        "teamAid": 16,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok15"
+                        "name": "kiralyok15",
+                        "teamAid": 18,
+                        "teamAscore": 0
                     }
                 ]
             }
@@ -202,10 +250,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok1"
+                        "name": "Kiralyok1",
+                        "teamAid": 3,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok5"
+                        "name": "kiralyok5",
+                        "teamAid": 8,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -214,10 +266,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok9"
+                        "name": "kiralyok9",
+                        "teamAid": 12,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok13"
+                        "name": "kiralyok13",
+                        "teamAid": 16,
+                        "teamAscore": 0
                     }
                 ]
             }
@@ -231,10 +287,14 @@ Get data for the chosen game's round brackets:
                 "date": "Wed Oct 23 2024",
                 "teams": [
                     {
-                        "name": "Kiralyok1"
+                        "name": "Kiralyok1",
+                        "teamAid": 3,
+                        "teamAscore": 0
                     },
                     {
-                        "name": "Kiralyok13"
+                        "name": "kiralyok13",
+                        "teamAid": 16,
+                        "teamAscore": 0
                     }
                 ]
             }

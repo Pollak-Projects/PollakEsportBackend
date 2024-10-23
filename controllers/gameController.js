@@ -35,10 +35,11 @@ const createGame = async (req, res) => {
     const playerCount = req.body.playerCount; 
     const playerPerTeam = req.body.playerCount; 
     const requiredForPrize = req.body.requiredForPrize;
+    const status = req.body.status;
     
     try{
         const response = await new Promise((resolve, reject) => {
-            connect.query("INSERT INTO `game` (`id`, `name`, `playerCount`, `playerPerTeam`, `requiredForPrize`) VALUES (NULL, ?, ?, ?, ?);", [name, playerCount,playerPerTeam,requiredForPrize],(err, result) => {
+            connect.query("INSERT INTO `game` (`id`, `name`, `playerCount`, `playerPerTeam`, `requiredForPrize`, `status`) VALUES (NULL, ?, ?, ?, ?, ?);", [name, playerCount,playerPerTeam,requiredForPrize, status],(err, result) => {
                 if (err) reject(err); 
                 else resolve(result);
             });
@@ -56,10 +57,11 @@ const updateGame = async (req, res) => {
     const playerCount = req.body.playerCount; 
     const playerPerTeam = req.body.playerCount; 
     const requiredForPrize = req.body.requiredForPrize;
+    const status = req.body.status;
 
     try{
         const response = await new Promise((resolve, reject) => {
-            connect.query("UPDATE `game` SET `name` = ?, `playerCount` = ?, `playerPerTeam` = ?, `requiredForPrize` = ? WHERE `game`.`id` = ?", [name, playerCount, playerPerTeam, requiredForPrize, id],(err, result) => {
+            connect.query("UPDATE `game` SET `name` = ?, `playerCount` = ?, `playerPerTeam` = ?, `requiredForPrize` = ?, `status` = ? WHERE `game`.`id` = ?", [name, playerCount, playerPerTeam, requiredForPrize, status, id],(err, result) => {
                 if (err) reject(err); 
                 else resolve(result);
             });
