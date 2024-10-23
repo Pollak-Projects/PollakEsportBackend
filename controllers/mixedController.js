@@ -102,8 +102,8 @@ const formatRoundsWithScores = (results) => {
           },
           {
             name: row.teamB_name,
-            teamAid: row.teamB_id,
-            teamAscore: row.teamB_score 
+            teamBid: row.teamB_id,
+            teamBscore: row.teamB_score 
           }
         ]
       });
