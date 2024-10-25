@@ -54,8 +54,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "Kiralyok2",
-                        "teamBid": 4,
-                        "teamBscore": 0
+                        "teamAid": 4,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -70,8 +70,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "Kiralyok4",
-                        "teamBid": 6,
-                        "teamBscore": 0
+                        "teamAid": 6,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -86,8 +86,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "kiralyok6",
-                        "teamBid": 9,
-                        "teamBscore": 0
+                        "teamAid": 9,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -102,8 +102,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "kiralyok8",
-                        "teamBid": 11,
-                        "teamBscore": 0
+                        "teamAid": 11,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -118,8 +118,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "kiralyok10",
-                        "teamBid": 13,
-                        "teamBscore": 0
+                        "teamAid": 13,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -134,8 +134,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "kiralyok12",
-                        "teamBid": 15,
-                        "teamBscore": 0
+                        "teamAid": 15,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -150,8 +150,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "kiralyok14",
-                        "teamBid": 17,
-                        "teamBscore": 0
+                        "teamAid": 17,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -166,8 +166,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "kiralyok16",
-                        "teamBid": 19,
-                        "teamBscore": 0
+                        "teamAid": 19,
+                        "teamAscore": 0
                     }
                 ]
             }
@@ -187,8 +187,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "Kiralyok3",
-                        "teamBid": 5,
-                        "teamBscore": 0
+                        "teamAid": 5,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -203,8 +203,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "kiralyok7",
-                        "teamBid": 10,
-                        "teamBscore": 0
+                        "teamAid": 10,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -219,8 +219,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "kiralyok11",
-                        "teamBid": 14,
-                        "teamBscore": 0
+                        "teamAid": 14,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -235,8 +235,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "kiralyok15",
-                        "teamBid": 18,
-                        "teamBscore": 0
+                        "teamAid": 18,
+                        "teamAscore": 0
                     }
                 ]
             }
@@ -256,8 +256,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "kiralyok5",
-                        "teamBid": 8,
-                        "teamBscore": 0
+                        "teamAid": 8,
+                        "teamAscore": 0
                     }
                 ]
             },
@@ -272,8 +272,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "kiralyok13",
-                        "teamBid": 16,
-                        "teamBscore": 0
+                        "teamAid": 16,
+                        "teamAscore": 0
                     }
                 ]
             }
@@ -293,8 +293,8 @@ Get data for the chosen game's round brackets:
                     },
                     {
                         "name": "kiralyok13",
-                        "teamBid": 16,
-                        "teamBscore": 0
+                        "teamAid": 16,
+                        "teamAscore": 0
                     }
                 ]
             }

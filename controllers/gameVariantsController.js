@@ -1,68 +1,95 @@
 const connect = require("../config/db");
 
 const getAllGameVariants = async (req, res) => {
-    try{
-        const gamevariants = await new Promise(async (resolve, reject) => {
+    try {
+        const gamevariants = await new Promise((resolve, reject) => {
             connect.query("SELECT * FROM `gamevariants`", (err, result) => {
-                if (err) reject(err); 
+                if (err) reject(err);
                 else resolve(result);
             });
         });
 
-        return res.json(gamevariants);
-    } catch (error){ res.status(500).json(error); }
+        if (!gamevariants.length) {
+            return res.status(404).json({ message: "Nincs elérhető játékváltozat." });
+        }
+
+        return res.json({ message: "Játékváltozatok sikeresen lekérve.", data: gamevariants });
+    } catch (error) {
+        res.status(500).json({ message: "Hiba történt a játékváltozatok lekérése során.", error });
+    }
 };
 
 const getGameVariantByGameId = async (req, res) => {
-    
-    const gameId = req.params.gameid; 
-    
-    try{
+    const { gameid } = req.params;
+
+    if (!gameid) {
+        return res.status(400).json({ message: "A játék ID-ja kötelező." });
+    }
+
+    try {
         const gamevariant = await new Promise((resolve, reject) => {
-            connect.query("SELECT * FROM `gamevariants` WHERE `gameId` = ?", [gameId],(err, result) => {
-                if (err) reject(err); 
+            connect.query("SELECT * FROM `gamevariants` WHERE `gameId` = ?", [gameid], (err, result) => {
+                if (err) reject(err);
                 else resolve(result);
             });
         });
 
-        return res.json(gamevariant);
-    } catch (error){ res.status(500).json(error); }
+        if (!gamevariant.length) {
+            return res.status(404).json({ message: "Nincs elérhető játékváltozat a megadott játék ID-val." });
+        }
+
+        return res.json({ message: "Játékváltozat sikeresen lekérve.", data: gamevariant });
+    } catch (error) {
+        res.status(500).json({ message: "Hiba történt a játékváltozat lekérése során.", error });
+    }
 };
 
 const createGameVariant = async (req, res) => {
+    const { variantId, gameId, typeId } = req.body;
 
-    const variantId = req.body.variantId;
-    const gameId = req.body.gameId; 
-    const typeId = req.body.typeId;  
-    
-    try{
+    if (!variantId || !gameId || !typeId) {
+        return res.status(400).json({ message: "Minden mező kitöltése kötelező." });
+    }
+
+    try {
         const response = await new Promise((resolve, reject) => {
-            connect.query("INSERT INTO `gamevariants` (`variantId`, `gameId`, `typeId`) VALUES (?, ?, ?);", [variantId, gameId,typeId],(err, result) => {
-                if (err) reject(err); 
+            connect.query("INSERT INTO `gamevariants` (`variantId`, `gameId`, `typeId`) VALUES (?, ?, ?);", 
+                [variantId, gameId, typeId], (err, result) => {
+                if (err) reject(err);
                 else resolve(result);
             });
         });
 
-        return res.json(response);
-    } catch (error){ res.status(500).json(error); }
+        return res.status(201).json({ message: "Játékváltozat sikeresen létrehozva.", data: response });
+    } catch (error) {
+        res.status(500).json({ message: "Hiba történt a játékváltozat létrehozása során.", error });
+    }
 };
 
 const deleteGameVariant = async (req, res) => {
+    const { variantId, gameId, typeId } = req.body;
 
-    const variantId = req.body.variantId;
-    const gameId = req.body.gameId; 
-    const typeId = req.body.typeId; 
+    if (!variantId || !gameId || !typeId) {
+        return res.status(400).json({ message: "Minden mező kitöltése kötelező." });
+    }
 
-    try{
+    try {
         const response = await new Promise((resolve, reject) => {
-            connect.query("DELETE FROM `gamevariants` WHERE `gamevariants`.`gameId` = ? AND `gamevariants`.`variantId` = ? AND `gamevariants`.`typeId` = ?", [gameId, variantId,typeId],(err, result) => {
-                if (err) reject(err); 
+            connect.query("DELETE FROM `gamevariants` WHERE `gamevariants`.`gameId` = ? AND `gamevariants`.`variantId` = ? AND `gamevariants`.`typeId` = ?", 
+                [gameId, variantId, typeId], (err, result) => {
+                if (err) reject(err);
                 else resolve(result);
             });
         });
 
-        return res.json(response);
-    } catch (error){ res.status(500).json(error); }
+        if (response.affectedRows === 0) {
+            return res.status(404).json({ message: "Nincs elérhető játékváltozat a megadott adatokkal." });
+        }
+
+        return res.json({ message: "Játékváltozat sikeresen törölve.", data: response });
+    } catch (error) {
+        res.status(500).json({ message: "Hiba történt a játékváltozat törlése során.", error });
+    }
 };
 
 module.exports = {
@@ -70,4 +97,4 @@ module.exports = {
     getGameVariantByGameId,
     createGameVariant,
     deleteGameVariant
-}
+};

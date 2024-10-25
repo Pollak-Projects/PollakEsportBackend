@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2024 at 08:32 PM
+-- Generation Time: Oct 26, 2024 at 12:45 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -199,30 +199,31 @@ CREATE TABLE `team` (
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `createdBy` int(11) NOT NULL,
-  `isBanned` tinyint(1) NOT NULL DEFAULT 0
+  `isBanned` tinyint(1) NOT NULL DEFAULT 0,
+  `inviteCode` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `team`
 --
 
-INSERT INTO `team` (`id`, `name`, `createdAt`, `updatedAt`, `createdBy`, `isBanned`) VALUES
-(3, 'Kiralyok1', '2024-10-17 20:59:28', '2024-10-23 17:47:05', 1, 0),
-(4, 'Kiralyok2', '2024-10-17 20:59:39', '2024-10-23 17:47:07', 1, 0),
-(5, 'Kiralyok3', '2024-10-17 20:59:39', '2024-10-23 17:47:09', 1, 0),
-(6, 'Kiralyok4', '2024-10-17 20:59:39', '2024-10-23 17:47:12', 1, 0),
-(8, 'kiralyok5', '2024-10-23 14:46:33', '2024-10-23 17:47:14', 1, 0),
-(9, 'kiralyok6', '2024-10-23 14:47:22', '2024-10-23 17:47:15', 1, 0),
-(10, 'kiralyok7', '2024-10-23 14:47:22', '2024-10-23 17:47:17', 1, 0),
-(11, 'kiralyok8', '2024-10-23 14:47:22', '2024-10-23 17:47:18', 1, 0),
-(12, 'kiralyok9', '2024-10-23 14:47:22', '2024-10-23 17:47:20', 1, 0),
-(13, 'kiralyok10', '2024-10-23 14:47:22', '2024-10-23 17:47:21', 1, 0),
-(14, 'kiralyok11', '2024-10-23 14:47:22', '2024-10-23 17:47:22', 1, 0),
-(15, 'kiralyok12', '2024-10-23 14:47:22', '2024-10-23 17:47:24', 1, 0),
-(16, 'kiralyok13', '2024-10-23 14:47:22', '2024-10-23 17:47:25', 1, 0),
-(17, 'kiralyok14', '2024-10-23 14:47:22', '2024-10-23 17:47:26', 1, 0),
-(18, 'kiralyok15', '2024-10-23 14:47:22', '2024-10-23 17:47:28', 1, 0),
-(19, 'kiralyok16', '2024-10-23 14:47:22', '2024-10-23 17:47:29', 1, 0);
+INSERT INTO `team` (`id`, `name`, `createdAt`, `updatedAt`, `createdBy`, `isBanned`, `inviteCode`) VALUES
+(3, 'Kiralyok1', '2024-10-17 20:59:28', '2024-10-25 22:17:44', 1, 0, 'c6abc0'),
+(4, 'Kiralyok2', '2024-10-17 20:59:39', '2024-10-25 22:17:51', 1, 0, 'c6abc6'),
+(5, 'Kiralyok3', '2024-10-17 20:59:39', '2024-10-25 22:25:22', 1, 0, 'c6adc0'),
+(6, 'Kiralyok4', '2024-10-17 20:59:39', '2024-10-25 22:18:02', 1, 0, 'ca3bc0'),
+(8, 'kiralyok5', '2024-10-23 14:46:33', '2024-10-25 22:18:06', 1, 0, 'c6abc9'),
+(9, 'kiralyok6', '2024-10-23 14:47:22', '2024-10-25 22:18:10', 1, 0, 'c6ab30'),
+(10, 'kiralyok7', '2024-10-23 14:47:22', '2024-10-25 22:18:18', 1, 0, 'd6abc0'),
+(11, 'kiralyok8', '2024-10-23 14:47:22', '2024-10-25 22:18:25', 1, 0, 'c6lbc0'),
+(12, 'kiralyok9', '2024-10-23 14:47:22', '2024-10-25 22:18:30', 1, 0, 'a6abc0'),
+(13, 'kiralyok10', '2024-10-23 14:47:22', '2024-10-25 22:18:36', 1, 0, 'h6abc0'),
+(14, 'kiralyok11', '2024-10-23 14:47:22', '2024-10-25 22:18:41', 1, 0, 'z6abc0'),
+(15, 'kiralyok12', '2024-10-23 14:47:22', '2024-10-25 22:18:43', 1, 0, 'x6abc0'),
+(16, 'kiralyok13', '2024-10-23 14:47:22', '2024-10-25 22:18:49', 1, 0, 'c0abc0'),
+(17, 'kiralyok14', '2024-10-23 14:47:22', '2024-10-25 22:18:54', 1, 0, 'c6abz0'),
+(18, 'kiralyok15', '2024-10-23 14:47:22', '2024-10-25 22:18:58', 1, 0, 'c6mbc0'),
+(19, 'kiralyok16', '2024-10-23 14:47:22', '2024-10-25 22:19:03', 1, 0, 'c6mnc0');
 
 -- --------------------------------------------------------
 
@@ -245,7 +246,7 @@ CREATE TABLE `teamsonseed` (
 --
 
 INSERT INTO `teamsonseed` (`teamOneId`, `teamTwoId`, `teamOneScore`, `teamTwoScore`, `seedId`, `createdAt`, `updatedAt`) VALUES
-(3, 4, 0, 0, 1, '2024-10-23 14:47:42', '2024-10-23 14:47:42'),
+(3, 4, 4, 2, 1, '2024-10-23 14:47:42', '2024-10-25 18:52:36'),
 (5, 6, 0, 0, 1, '2024-10-23 14:47:49', '2024-10-23 14:47:49'),
 (8, 9, 0, 0, 1, '2024-10-23 14:47:56', '2024-10-23 14:47:56'),
 (10, 11, 0, 0, 1, '2024-10-23 14:48:02', '2024-10-23 14:48:02'),
@@ -269,6 +270,7 @@ INSERT INTO `teamsonseed` (`teamOneId`, `teamTwoId`, `teamOneScore`, `teamTwoSco
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `om` varchar(255) DEFAULT NULL,
@@ -281,27 +283,27 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `username`, `om`, `password`, `createdAt`, `updatedAt`) VALUES
-(1, '1janipatrik138@gmail.com', 'Kajcso1', '123455678', 'IDK', '2024-10-17 20:34:27', '2024-10-17 20:38:49'),
-(10, '2janipatrik138@gmail.com', 'Kajcso2', '2234556784', 'IDK', '2024-10-17 20:34:27', '2024-10-25 18:28:01'),
-(11, '3janipatrik138@gmail.com', 'Kajcso3', '3234556783', 'IDK', '2024-10-17 20:34:27', '2024-10-25 18:28:03'),
-(12, '4janipatrik138@gmail.com', 'Kajcso4', '4234556783', 'IDK', '2024-10-17 20:34:27', '2024-10-25 18:28:20'),
-(13, '5janipatrik138@gmail.com', 'Kajcso5', '5234556784', 'IDK', '2024-10-17 20:34:27', '2024-10-25 18:28:05'),
-(14, '6janipatrik138@gmail.com', 'Kajcso6', '6234556787', 'IDK', '2024-10-17 20:34:27', '2024-10-25 18:28:09'),
-(15, '7janipatrik138@gmail.com', 'Kajcso7', '7234556786', 'IDK', '2024-10-17 20:34:27', '2024-10-25 18:28:08'),
-(16, '8janipatrik138@gmail.com', 'Kajcso8', '823455678', 'IDK', '2024-10-17 20:34:27', '2024-10-17 20:34:27'),
-(17, '9janipatrik138@gmail.com', 'Kajcso9', '923455678', 'IDK', '2024-10-17 20:34:27', '2024-10-17 20:34:27'),
-(18, '10janipatrik138@gmail.com', 'Kajcso10', '12345567844', 'IDK', '2024-10-17 20:34:27', '2024-10-25 18:28:11'),
-(19, '11janipatrik138@gmail.com', 'Kajcso11', '223455678', 'IDK', '2024-10-17 20:34:27', '2024-10-17 20:34:27'),
-(20, '12janipatrik138@gmail.com', 'Kajcso12', '323455678', 'IDK', '2024-10-17 20:34:27', '2024-10-17 20:34:27'),
-(21, '13janipatrik138@gmail.com', 'Kajcso13', '423455678', 'IDK', '2024-10-17 20:34:27', '2024-10-17 20:34:27'),
-(22, '14janipatrik138@gmail.com', 'Kajcso14', '523455678', 'IDK', '2024-10-17 20:34:27', '2024-10-17 20:34:27'),
-(23, '15janipatrik138@gmail.com', 'Kajcso15', '6234556785', 'IDK', '2024-10-17 20:34:27', '2024-10-25 18:27:46'),
-(24, '16janipatrik138@gmail.com', 'Kajcso16', '7234556785', 'IDK', '2024-10-17 20:34:27', '2024-10-25 18:27:45'),
-(25, '17janipatrik138@gmail.com', 'Kajcso17', '8234556788', 'IDK', '2024-10-17 20:34:27', '2024-10-25 18:27:44'),
-(26, '18janipatrik138@gmail.com', 'Kajcso18', '9234556782', 'IDK', '2024-10-17 20:34:27', '2024-10-25 18:27:43'),
-(27, '19janipatrik138@gmail.com', 'Kajcso19', '1234556783', 'IDK', '2024-10-17 20:34:27', '2024-10-25 18:27:41'),
-(28, '20janipatrik138@gmail.com', 'Kajcso20', '22345567844', 'IDK', '2024-10-17 20:34:27', '2024-10-25 18:27:39');
+INSERT INTO `users` (`id`, `name`, `email`, `username`, `om`, `password`, `createdAt`, `updatedAt`) VALUES
+(1, 'asd', '1janipatrik138@gmail.com', 'Kajcso1', '123455678', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(10, 'asd', '2janipatrik138@gmail.com', 'Kajcso2', '2234556784', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(11, 'asd', '3janipatrik138@gmail.com', 'Kajcso3', '3234556783', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(12, 'asd', '4janipatrik138@gmail.com', 'Kajcso4', '4234556783', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(13, 'asd', '5janipatrik138@gmail.com', 'Kajcso5', '5234556784', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(14, 'asd', '6janipatrik138@gmail.com', 'Kajcso6', '6234556787', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(15, 'asd', '7janipatrik138@gmail.com', 'Kajcso7', '7234556786', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(16, 'asd', '8janipatrik138@gmail.com', 'Kajcso8', '823455678', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(17, 'asd', '9janipatrik138@gmail.com', 'Kajcso9', '923455678', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(18, 'asd', '10janipatrik138@gmail.com', 'Kajcso10', '12345567844', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(19, 'asd', '11janipatrik138@gmail.com', 'Kajcso11', '223455678', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(20, 'asd', '12janipatrik138@gmail.com', 'Kajcso12', '323455678', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(21, 'asd', '13janipatrik138@gmail.com', 'Kajcso13', '423455678', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(22, 'asd', '14janipatrik138@gmail.com', 'Kajcso14', '523455678', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(23, 'asd', '15janipatrik138@gmail.com', 'Kajcso15', '6234556785', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(24, 'asd', '16janipatrik138@gmail.com', 'Kajcso16', '7234556785', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(25, 'asd', '17janipatrik138@gmail.com', 'Kajcso17', '8234556788', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(26, 'asd', '18janipatrik138@gmail.com', 'Kajcso18', '9234556782', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(27, 'asd', '19janipatrik138@gmail.com', 'Kajcso19', '1234556783', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29'),
+(28, 'asd', '20janipatrik138@gmail.com', 'Kajcso20', '22345567844', 'IDK', '2024-10-17 20:34:27', '2024-10-25 20:55:29');
 
 -- --------------------------------------------------------
 
@@ -431,6 +433,7 @@ ALTER TABLE `teamsonseed`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `om` (`om`);
 
 --
@@ -454,7 +457,7 @@ ALTER TABLE `variant`
 -- AUTO_INCREMENT for table `game`
 --
 ALTER TABLE `game`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `matchtype`
@@ -478,13 +481,13 @@ ALTER TABLE `seed`
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `variant`

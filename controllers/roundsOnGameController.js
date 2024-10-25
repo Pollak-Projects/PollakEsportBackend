@@ -1,66 +1,93 @@
 const connect = require("../config/db");
 
 const getAllRoundsOnGames = async (req, res) => {
-    try{
-        const roundsongame = await new Promise(async (resolve, reject) => {
+    try {
+        const roundsongame = await new Promise((resolve, reject) => {
             connect.query("SELECT * FROM `roundsongame`", (err, result) => {
-                if (err) reject(err); 
+                if (err) reject(err);
                 else resolve(result);
             });
         });
 
-        return res.json(roundsongame);
-    } catch (error){ res.status(500).json(error); }
+        if (!roundsongame.length) {
+            return res.status(404).json({ message: "Nincsenek elérhető fordulók a játékokban." });
+        }
+
+        return res.json({ message: "Fordulók a játékokban sikeresen lekérve.", data: roundsongame });
+    } catch (error) {
+        res.status(500).json({ message: "Hiba történt a fordulók lekérése során.", error });
+    }
 };
 
 const getRoundOnGameById = async (req, res) => {
-    
-    const gameId = req.params.gameid; 
-    
-    try{
+    const { gameid } = req.params;
+
+    if (!gameid) {
+        return res.status(400).json({ message: "A játék ID-ja kötelező." });
+    }
+
+    try {
         const roundongame = await new Promise((resolve, reject) => {
-            connect.query("SELECT * FROM `roundsongame` WHERE `gameId` = ?", [gameId],(err, result) => {
-                if (err) reject(err); 
+            connect.query("SELECT * FROM `roundsongame` WHERE `gameId` = ?", [gameid], (err, result) => {
+                if (err) reject(err);
                 else resolve(result);
             });
         });
 
-        return res.json(roundongame);
-    } catch (error){ res.status(500).json(error); }
+        if (!roundongame.length) {
+            return res.status(404).json({ message: "A megadott játékhoz tartozó forduló nem található." });
+        }
+
+        return res.json({ message: "Forduló a játékhoz sikeresen lekérve.", data: roundongame });
+    } catch (error) {
+        res.status(500).json({ message: "Hiba történt a forduló lekérése során.", error });
+    }
 };
 
 const createRoundsOnGame = async (req, res) => {
+    const { roundId, gameId } = req.body;
 
-    const roundId = req.body.roundId;
-    const gameId = req.body.gameId;  
-    
-    try{
+    if (!roundId || !gameId) {
+        return res.status(400).json({ message: "A forduló és a játék ID-jának megadása kötelező." });
+    }
+
+    try {
         const response = await new Promise((resolve, reject) => {
-            connect.query("INSERT INTO `roundsongame` (`roundId`, `gameId`) VALUES (?, ?);", [roundId, gameId],(err, result) => {
-                if (err) reject(err); 
+            connect.query("INSERT INTO `roundsongame` (`roundId`, `gameId`) VALUES (?, ?);", [roundId, gameId], (err, result) => {
+                if (err) reject(err);
                 else resolve(result);
             });
         });
 
-        return res.json(response);
-    } catch (error){ res.status(500).json(error); }
+        return res.json({ message: "Forduló sikeresen létrehozva a játékhoz.", data: response });
+    } catch (error) {
+        res.status(500).json({ message: "Hiba történt a forduló létrehozása során.", error });
+    }
 };
 
 const deleteRoundsOnGame = async (req, res) => {
+    const { roundId, gameId } = req.body;
 
-    const roundId = req.body.roundId;
-    const gameId = req.body.gameId; 
+    if (!roundId || !gameId) {
+        return res.status(400).json({ message: "A forduló és a játék ID-jának megadása kötelező." });
+    }
 
-    try{
+    try {
         const response = await new Promise((resolve, reject) => {
-            connect.query("DELETE FROM `roundsongame` WHERE `roundsongame`.`roundId` = ? AND `roundsongame`.`gameId` = ?", [roundId, gameId],(err, result) => {
-                if (err) reject(err); 
+            connect.query("DELETE FROM `roundsongame` WHERE `roundId` = ? AND `gameId` = ?", [roundId, gameId], (err, result) => {
+                if (err) reject(err);
                 else resolve(result);
             });
         });
 
-        return res.json(response);
-    } catch (error){ res.status(500).json(error); }
+        if (response.affectedRows === 0) {
+            return res.status(404).json({ message: "A megadott ID-hoz tartozó forduló nem található a játékban." });
+        }
+
+        return res.json({ message: "Forduló sikeresen törölve a játékból.", data: response });
+    } catch (error) {
+        res.status(500).json({ message: "Hiba történt a forduló törlése során.", error });
+    }
 };
 
 module.exports = {
@@ -68,4 +95,4 @@ module.exports = {
     getRoundOnGameById,
     createRoundsOnGame,
     deleteRoundsOnGame
-}
+};

@@ -5,12 +5,15 @@ const{
     getAllUsersOnTeams,
     getUsersOnTeamById,
     createUsersOnTeam,
-    deleteUsersOnTeam
+    deleteUsersOnTeam,
+    userJoinByCode
 } = require('../controllers/usersOnTeamController.js')
 
 Router.get('/', getAllUsersOnTeams);
 
 Router.post('/', createUsersOnTeam);
+
+Router.post('/join/:code', userJoinByCode)
 
 Router.get('/:teamid', getUsersOnTeamById);
 
