@@ -74,9 +74,66 @@ const getDataForBrackets = async (req, res) => {
     } catch (error){ res.status(500).json(error); }
 };
 
+const getTeamsWithUsers = async (req, res) => {
+
+    const teamid = req.params.teamid;
+
+    try{
+        const users = await new Promise(async (resolve, reject) => {
+            connect.query(`
+                    SELECT 
+                        t.id as team_id,
+                        t.name as team_name,
+                        t.isBanned as is_banned,
+                        u.id as user_id,
+                        u.username as username
+                    FROM 
+                        usersonteam uot
+                    JOIN 
+                        team t ON uot.teamId = t.id
+                    JOIN 
+                        users u ON uot.userId = u.id
+                    WHERE 
+                        uot.teamId = ?
+                `, [teamid],(err, result) => {
+                if (err) reject(err); 
+                else resolve(result);
+            });
+        });
+
+        return res.json(users);
+    } catch (error){ res.status(500).json(error); }
+};
+
+const updateScores = async (req, res) => {
+
+    const { teamOneId, teamOneScore, teamTwoId, teamTwoScore, seedId } = req.body;
+
+    try{
+        const response = await new Promise(async (resolve, reject) => {
+            connect.query(`
+                    UPDATE teamsonseed SET 
+                    teamOneScore = ?,
+                    teamTwoScore = ?
+                    WHERE 
+                    teamOneId = ? AND
+                    teamTwoId = ? AND
+                    seedId = ?
+                `, [teamOneScore, teamTwoScore, teamOneId, teamTwoId, seedId],(err, result) => {
+                if (err) reject(err); 
+                else resolve(result);
+            });
+        });
+
+        return res.json(response);
+    } catch (error){ res.status(500).json(error); }
+};
+
 module.exports = {
     getAllGamesForCards,
-    getDataForBrackets
+    getDataForBrackets,
+    getTeamsWithUsers,
+    updateScores
 }
 
 const formatRoundsWithScores = (results) => {
