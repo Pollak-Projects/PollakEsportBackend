@@ -50,6 +50,7 @@ const getDataForBrackets = async (req, res) => {
         const data = await new Promise((resolve, reject) => {
             connect.query(`
                 SELECT 
+                    ts.seedId as seed_id,
                     ts.teamOneScore as teamA_score,
                     ts.teamTwoScore as teamB_score,
                     t1.id as teamA_id,
@@ -175,6 +176,7 @@ const formatRoundsWithScores = (results) => {
 
         acc[roundTitle].seeds.push({
             id: seedCounter++,
+            seedId: row.seed_id,
             date: new Date().toDateString(),
             teams: [
                 {
