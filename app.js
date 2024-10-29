@@ -18,6 +18,7 @@ const roundsOnGameRoutes = require("./routes/roundsOnGameRoutes");
 const gameVariantsRoutes = require("./routes/gameVariantsRoutes");
 const teamsOnSeedRoutes = require("./routes/teamsOnSeedRoutes");
 const mixedRoutes = require("./routes/mixedRoutes");
+const {authMiddleware} = require("./middlewares/authHandler");
 
 dotenv.config();
 const app = express();
@@ -25,7 +26,7 @@ const app = express();
 app.use(express.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/user', userRoutes);
+app.use('/user', authMiddleware, userRoutes);
 app.use('/team', teamRoutes);
 app.use('/game', gameRoutes);
 app.use('/round', roundRoutes);
