@@ -2,9 +2,9 @@ const express = require("express");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 
-const { checkSessionMiddleware }= require("./middlewares/sessionHandler");
+const { checkSessionMiddleware } = require("./middlewares/sessionHandler");
 const { checkTokenMiddleware } = require("./middlewares/tokenHandler");
-const { login, register, logout } = require("./controllers/authController") 
+const { login, register, logout } = require("./controllers/authController");
 
 const userRoutes = require("./routes/userRoutes");
 const teamRoutes = require("./routes/teamRoutes");
@@ -18,26 +18,27 @@ const roundsOnGameRoutes = require("./routes/roundsOnGameRoutes");
 const gameVariantsRoutes = require("./routes/gameVariantsRoutes");
 const teamsOnSeedRoutes = require("./routes/teamsOnSeedRoutes");
 const mixedRoutes = require("./routes/mixedRoutes");
-const {authMiddleware} = require("./middlewares/authHandler");
+const { authMiddleware } = require("./middlewares/authHandler");
 
 dotenv.config();
 const app = express();
 
-app.use(express.json()); 
+app.use(cors());
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/user', authMiddleware, userRoutes);
-app.use('/team', teamRoutes);
-app.use('/game', gameRoutes);
-app.use('/round', roundRoutes);
-app.use('/variant', variantRoutes);
-app.use('/type', typeRoutes);
-app.use('/seed', seedRoutes);
-app.use('/usersonteam', usersOnTeamRoutes);
-app.use('/roundsongame', roundsOnGameRoutes);
-app.use('/gamevariants', gameVariantsRoutes);
-app.use('/teamsonseed', teamsOnSeedRoutes)
-app.use('/mixed', mixedRoutes)
+app.use("/user", authMiddleware, userRoutes);
+app.use("/team", teamRoutes);
+app.use("/game", gameRoutes);
+app.use("/round", roundRoutes);
+app.use("/variant", variantRoutes);
+app.use("/type", typeRoutes);
+app.use("/seed", seedRoutes);
+app.use("/usersonteam", usersOnTeamRoutes);
+app.use("/roundsongame", roundsOnGameRoutes);
+app.use("/gamevariants", gameVariantsRoutes);
+app.use("/teamsonseed", teamsOnSeedRoutes);
+app.use("/mixed", mixedRoutes);
 
 //session
 //app.use(checkSessionMiddleware)
@@ -47,6 +48,6 @@ app.use('/mixed', mixedRoutes)
 //app.post("/logout", logout)
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT,() => {
-    console.log(`Server is running at http://localhost:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
 });
