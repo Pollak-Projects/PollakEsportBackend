@@ -18,6 +18,7 @@ const roundsOnGameRoutes = require("./routes/roundsOnGameRoutes");
 const gameVariantsRoutes = require("./routes/gameVariantsRoutes");
 const teamsOnSeedRoutes = require("./routes/teamsOnSeedRoutes");
 const mixedRoutes = require("./routes/mixedRoutes");
+const cors = require("cors");
 const { authMiddleware } = require("./middlewares/authHandler");
 
 dotenv.config();
@@ -47,7 +48,7 @@ app.use("/mixed", mixedRoutes);
 //app.post("/login", login);
 //app.post("/logout", logout)
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8181;
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
