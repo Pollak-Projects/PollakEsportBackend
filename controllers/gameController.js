@@ -93,31 +93,36 @@ const createGame = async (req, res) => {
 
 const updateGame = async (req, res) => {
   const { id } = req.params;
-  const { name, playerCount, playerPerTeam, requiredForPrize, status } =
+  const { name, playerPerTeam, description, image, startDate, endDate } =
     req.body;
 
-  if (
-    !id ||
-    !name ||
-    !playerCount ||
-    !playerPerTeam ||
-    !requiredForPrize ||
-    !status
-  ) {
+  if (!name || !description || !playerPerTeam || !startDate || !endDate) {
     return res.status(400).json({ message: "Minden mező kitöltése kötelező." });
   }
 
   try {
+    const query =
+      image !== undefined
+        ? "UPDATE `game` SET `name` = ?, `description` = ?, `playerPerTeam` = ?, `image` = ?, `startDate` = ?, `endDate` = ? WHERE `game`.`id` = ?"
+        : "UPDATE `game` SET `name` = ?, `description` = ?, `playerPerTeam` = ?, `startDate` = ?, `endDate` = ? WHERE `game`.`id` = ?";
+
+    const values =
+      image !== undefined
+        ? [name, description, playerPerTeam, image, startDate, endDate, id]
+        : [name, description, playerPerTeam, startDate, endDate, id];
+
     const response = await new Promise((resolve, reject) => {
-      connect.query(
-        "UPDATE `game` SET `name` = ?, `playerCount` = ?, `playerPerTeam` = ?, `requiredForPrize` = ?, `status` = ? WHERE `game`.`id` = ?",
-        [name, playerCount, playerPerTeam, requiredForPrize, status, id],
-        (err, result) => {
-          if (err) reject(err);
-          else resolve(result);
-        }
-      );
+      connect.query(query, values, (err, result) => {
+        if (err) reject(err);
+        else resolve(result);
+      });
     });
+
+    if (response.affectedRows === 0) {
+      return res
+        .status(404)
+        .json({ message: "Nincs elérhető játék a megadott ID-val." });
+    }
 
     return res.json({ message: "Játék sikeresen frissítve.", data: response });
   } catch (error) {
