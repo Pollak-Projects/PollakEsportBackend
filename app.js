@@ -28,7 +28,7 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/user", authMiddleware, userRoutes);
+app.use("/user", userRoutes);
 app.use("/team", teamRoutes);
 app.use("/game", gameRoutes);
 app.use("/round", roundRoutes);
