@@ -11,8 +11,6 @@ const{
 
 Router.get('/', getAllUsersOnTeams);
 
-Router.post('/', createUsersOnTeam);
-
 Router.post('/join/:code', userJoinByCode)
 
 Router.get('/:teamid', getUsersOnTeamById);

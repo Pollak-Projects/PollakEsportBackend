@@ -6,7 +6,6 @@ const { checkSessionMiddleware } = require("./middlewares/sessionHandler");
 const { checkTokenMiddleware } = require("./middlewares/tokenHandler");
 const { login, register, logout } = require("./controllers/authController");
 
-const userRoutes = require("./routes/userRoutes");
 const teamRoutes = require("./routes/teamRoutes");
 const gameRoutes = require("./routes/gameRoutes");
 const roundRoutes = require("./routes/roundRoutes");
@@ -28,7 +27,6 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/user", userRoutes);
 app.use("/team", teamRoutes);
 app.use("/game", gameRoutes);
 app.use("/round", roundRoutes);
