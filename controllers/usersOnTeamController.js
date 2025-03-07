@@ -41,29 +41,24 @@ const getUsersOnTeamById = async (req, res) => {
         [teamid],
         async (err, result) => {
           if (err) reject(err);
-          else {
-            const users = [];
-            await result.map(async (usersonteam) => {
-              const data = await fetch(
-                `https://auth.pollak.info/user/get/${usersonteam.userId}`,
-                {
-                  method: "GET",
-                  headers: {
-                    "x-api-key": process.env.API_KEY,
-                    "Content-Type": "application/json",
-                  },
-                }
-              );
-              users.push(await data.json());
-            });
-            resolve(users);
-          }
+
+          const promises = result.map((usersonteam) =>
+            fetch(`https://auth.pollak.info/user/get/${usersonteam.userId}`, {
+              method: "GET",
+              headers: {
+                "x-api-key": process.env.API_KEY,
+                "Content-Type": "application/json",
+              },
+            }).then((response) => response.json())
+          );
+
+          const users = await Promise.all(promises);
+          resolve(users);
         }
       );
     });
-    console.log(usersonteam);
 
-    if (!users.length) {
+    if (usersonteam.length <= 0) {
       return res
         .status(404)
         .json({ message: "A megadott csapatban nincsenek felhasználók." });
