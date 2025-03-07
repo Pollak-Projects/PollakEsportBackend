@@ -150,7 +150,7 @@ const deleteUsersOnTeam = async (req, res) => {
 
 const userJoinByCode = async (req, res) => {
   const inviteCode = req.params.code;
-  const userId = req.body.userId || 1;
+  const userId = req.body.userId;
 
   if (!inviteCode || !userId) {
     return res.status(400).json({ message: "Minden adat megadása kötelező." });
@@ -172,23 +172,6 @@ const userJoinByCode = async (req, res) => {
       return res
         .status(404)
         .json({ message: "A megadott invite kód nem található." });
-    }
-
-    const user = await new Promise((resolve, reject) => {
-      connect.query(
-        "SELECT * FROM users WHERE id = ?",
-        [userId],
-        (err, result) => {
-          if (err) reject(err);
-          else resolve(result);
-        }
-      );
-    });
-
-    if (!user.length) {
-      return res
-        .status(404)
-        .json({ message: "A megadott felhasználó nem található." });
     }
 
     const response = await new Promise((resolve, reject) => {

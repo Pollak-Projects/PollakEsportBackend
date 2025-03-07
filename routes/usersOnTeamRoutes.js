@@ -1,20 +1,19 @@
-const express = require('express')
-var Router = express.Router()
+const express = require("express");
+var Router = express.Router();
 
-const{
-    getAllUsersOnTeams,
-    getUsersOnTeamById,
-    createUsersOnTeam,
-    deleteUsersOnTeam,
-    userJoinByCode
-} = require('../controllers/usersOnTeamController.js')
+const {
+  getAllUsersOnTeams,
+  getUsersOnTeamById,
+  deleteUsersOnTeam,
+  userJoinByCode,
+} = require("../controllers/usersOnTeamController.js");
 
-Router.get('/', getAllUsersOnTeams);
+Router.get("/", getAllUsersOnTeams);
 
-Router.post('/join/:code', userJoinByCode)
+Router.post("/join/:code", userJoinByCode);
 
-Router.get('/:teamid', getUsersOnTeamById);
+Router.get("/:teamid", getUsersOnTeamById);
 
-Router.delete('/', deleteUsersOnTeam);
+Router.delete("/", deleteUsersOnTeam);
 
-module.exports = Router
+module.exports = Router;
