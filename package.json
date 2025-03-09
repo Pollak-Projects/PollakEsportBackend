@@ -1,10 +1,14 @@
 {
   "name": "pollakbackend",
-  "version": "1.0.0",
-  "main": "app.js",
+  "version": "0.0.1",
+  "main": "./dist/app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prebuild": "rimraf dist",
+    "build": "npx tsc",
+    "prestart": "npm run build",
+    "start": "node ./dist/app.js",
+    "predev": "npm run build",
+    "dev": "concurrently \"nodemon ./dist/app.js\" \"npx tsc -w\""
   },
   "keywords": [],
   "author": "",
@@ -14,12 +18,16 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
-    "express-session": "^1.18.1",
-    "jsonwebtoken": "^9.0.2",
-    "keycloak-connect": "^26.0.2",
     "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.17"
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/mysql": "^2.15.26",
+    "@types/node": "^22.13.10",
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.9",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.2"
   }
 }
